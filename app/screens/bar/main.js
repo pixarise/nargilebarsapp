@@ -45,6 +45,7 @@ export default class BarScreen extends React.Component {
           navIconName="arrow-back"
           onIconClicked={() => goBack()}
           style={theme.toolbar} />
+
         <Map bar={bar} />
         <Info bar={bar} />
       </View>

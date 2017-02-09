@@ -20,9 +20,10 @@ export default class Map extends React.Component {
           latitudeDelta: 0.09,
           longitudeDelta: 0,
         }}
-        style={{ flex: 1 }}
+        style={{ height: 300 }}
         provider="google"
         loadingEnabled={true}
+        scrollEnabled={true}
         loadingIndicatorColor="#3F51B5"
       >
         <MapView.Marker
