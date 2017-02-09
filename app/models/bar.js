@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-var apiUrl = 'https://nargilebars.herokuapp.com/api/bar'
+var apiUrl = 'http://www.nargilebars.gr/api/bar'
 var storage = '@storage:bars'
 
 export default class Bar {
