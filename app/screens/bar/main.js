@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import Communications from 'react-native-communications';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Map from './components/map';
@@ -33,9 +34,30 @@ export default class BarScreen extends React.Component {
     header: { visible: false }
   };
 
+  static toolbarActions = [
+    {
+      title: 'Κλήση',
+      iconName: 'call',
+      show: 'always',
+    }
+  ];
+
+  doAction(pos) {
+    const { bar } = this.props.navigation.state.params;
+    const { iconName } = BarScreen.toolbarActions[pos];
+
+    switch(iconName) {
+      case 'call':
+        Communications.phonecall(bar.phone, true)
+      break;
+
+      default: console.error('No Action is set for ', action); break;
+    }
+    return;
+  }
+
   render() {
     const { bar } = this.props.navigation.state.params;
-    const { goBack } = this.props.navigation;
 
     return (
       <View style={theme.container}>
@@ -43,7 +65,9 @@ export default class BarScreen extends React.Component {
           title={bar.title}
           titleColor="#fff"
           navIconName="arrow-back"
-          onIconClicked={() => goBack()}
+          onIconClicked={() => this.props.navigation.goBack()}
+          actions={BarScreen.toolbarActions}
+          onActionSelected={(pos) => this.doAction(pos)}
           style={theme.toolbar} />
 
         <Map bar={bar} />

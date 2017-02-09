@@ -49,6 +49,14 @@ export default class HomeScreen extends React.Component {
     },
   };
 
+  static toolbarActions = [
+    {
+      title: 'Χάρτης',
+      iconName: 'map',
+      show: 'always'
+    }
+  ];
+
   constructor(props) {
     super(props);
 
@@ -71,7 +79,8 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  showAllBarMap() {
+  showAllBarMap(pos) {
+    const action = HomeScreen.toolbarActions[pos];
     const { navigate } = this.props.navigation;
     navigate('AllBarMap', { bars: this.state.barsRaw })
   }
@@ -88,7 +97,7 @@ export default class HomeScreen extends React.Component {
         <Icon.ToolbarAndroid
           title="Nargile Bars"
           titleColor="#fff"
-          actions={[{title: 'Χάρτης', iconName: 'map', show: 'always'}]}
+          actions={HomeScreen.toolbarActions}
           onActionSelected={() => this.showAllBarMap()}
           style={theme.toolbar} />
 
