@@ -6,6 +6,31 @@ import MapStyle from './map-styles/silver.json';
 
 import assetPin from '../../../../img/pin.png';
 
+/*
+<MapView
+  pitchEnabled={false}
+  region={{
+    latitude: bar.position.latitude,
+    longitude: bar.position.longitude,
+    latitudeDelta: 0.09,
+    longitudeDelta: 0,
+  }}
+  style={{ height: 250 }}
+  provider="google"
+  loadingEnabled={true}
+  cacheEnabled={true}
+  customMapStyle={MapStyle}
+  loadingIndicatorColor="#3F51B5"
+>
+  <MapView.Marker
+    coordinate={bar.position}
+    title={bar.title}
+    description={bar.address.street}
+    image={assetPin}
+  />
+</MapView>
+*/
+
 export default class Map extends React.Component {
   render() {
     return (

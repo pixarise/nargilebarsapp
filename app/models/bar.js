@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-var apiUrl = 'http://www.nargilebars.gr/api/bar'
+var apiUrl = 'http://www.nargilebars.gr/api/v1/bar'
 var storage = '@storage:bars'
 
 export default class Bar {
@@ -16,7 +16,7 @@ export default class Bar {
             .then((res) => {
               if(res && res.data) {
                 // AsyncStorage.setItem(storage, JSON.stringify(res.data))
-                console.log('Retrieved bars:', res.data.length)
+                // console.log('Retrieved bars:', res.data.length)
                 return res.data
               }
             })
