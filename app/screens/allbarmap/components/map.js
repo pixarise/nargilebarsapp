@@ -44,6 +44,7 @@ export default class Map extends React.Component {
         }}
         style={{ flex: 1 }}
         provider="google"
+        customMapStyle={MapStyle}
         loadingEnabled={true}
         loadingIndicatorColor="#3F51B5"
       >
